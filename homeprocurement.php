@@ -29,12 +29,29 @@ $procurement = query("SELECT * from procurement");
     <title>Management Procurement</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="index.php">Dashboard</a></li>
+            <li><a href="maintenance.php">Maintenance Asset</a></li>
+            <li><a href="report.php">Inventory Report</a></li>
+            <li><a href="homeprocurement.php">Management Procurement</a></li></li>
+        </ul>    
+    </nav>
+
     <h1>List Of Procurement</h1>
     <a href="createprocurement.php">Add Project</a>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
+            <th>id</th>
             <th>Title</th>
+            <th>Quantity</th>
+            <th>Date</th>
+            <th>Picture</th>
+            <th>Type</th>
+            <th>Category/th>
             <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
         </tr>
         <?php foreach($procurement as $row):?>
         <tr>
@@ -42,8 +59,20 @@ $procurement = query("SELECT * from procurement");
                 <a href="update3.php">Ganti</a> |
                 <a href="hapus.php">Hapus</a>
             </td> -->
+            <td><?= $row["id_proc"];?></td>
             <td><?= $row["title_proc"];?></td>
+            <td><?= $row["qty_proc"];?></td>
+            <td><?= $row["date_proc"];?></td>
+            <td><?= $row["picture_proc"];?></td>
+            <td><?= $row["type_proc"];?></td>
+            <td><?= $row["cat_proc"];?></td>
             <td><?= $row["desc_proc"];?></td>
+            <td><?= $row["stat_proc"];?></td>
+            <td>
+                <a href="delete.php">Cancel</a>
+                <a href="updatrestatus.php">Process</a>
+            
+            </td>
         </tr>
         <?php endforeach ?>
     </table>
