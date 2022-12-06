@@ -1,23 +1,15 @@
 <?php
 use LDAP\Result;
 
-//Ambil data mahasiswa dari result
-//mysqli_fetch_row() = mengembalikan array numerik (indexnya angka)
-//mysqli_fetch_assoc() = mengembalikan array assosiatif 
-//mysqli_fetch_array() = mengembalikan array numerik dan assosiatif
-//mysqli_fetch_object() = mengembalikan object
-
-// while($pengunjung = mysqli_fetch_assoc($result)){
-// var_dump($pengunjung["lastname"]);}
-
-//var_dump($result); 
-// if(!$result){
-//     echo mysqli_error($conn);
-// };
 //Koneksi
 require'function.php';
-// //Ambil data dari myguests dan phones
-$procurement = query("SELECT * from procurement");
+// // //Ambil data dari myguests dan phones
+// $procurement = query("SELECT * from procurement");
+// $category = query("SELECT * from category");
+// $picture = query("SELECT * from picture");
+// $type = query("SELECT * from type");
+$select = query("SELECT procurement.proc_id,procurement.proc_name,procurement.proc_date,procurement.proc_description
+ FROM asset INNER JOIN tag ON asset.asset_id=tag.asset_id;");
 
 ?>
 <!DOCTYPE html>
@@ -27,9 +19,10 @@ $procurement = query("SELECT * from procurement");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Management Procurement</title>
+    <link rel="stylesheet" type="text/css" href="css\style.css">
 </head>
 <body>
-    <nav>
+    <nav class="vertikal">
         <ul>
             <li><a href="index.php">Dashboard</a></li>
             <li><a href="maintenance.php">Maintenance Asset</a></li>
@@ -44,34 +37,25 @@ $procurement = query("SELECT * from procurement");
         <tr>
             <th>id</th>
             <th>Title</th>
-            <th>Quantity</th>
             <th>Date</th>
-            <th>Picture</th>
-            <th>Type</th>
-            <th>Category/th>
             <th>Description</th>
             <th>Status</th>
             <th>Action</th>
+            <th>Type</th>
+            <th>Action</th>
         </tr>
-        <?php foreach($procurement as $row):?>
+        <?php foreach($select as $row):?>
         <tr>
-            <!-- <td>
-                <a href="update3.php">Ganti</a> |
-                <a href="hapus.php">Hapus</a>
-            </td> -->
-            <td><?= $row["id_proc"];?></td>
-            <td><?= $row["title_proc"];?></td>
-            <td><?= $row["qty_proc"];?></td>
-            <td><?= $row["date_proc"];?></td>
-            <td><?= $row["picture_proc"];?></td>
-            <td><?= $row["type_proc"];?></td>
-            <td><?= $row["cat_proc"];?></td>
-            <td><?= $row["desc_proc"];?></td>
-            <td><?= $row["stat_proc"];?></td>
+            <td><?= $row["proc_id"];?></td>
+            <td><?= $row["proc_name"];?></td>
+            <td><?= $row["proc_date"];?></td>
+            <td><?= $row["proc_description"];?></td>
+            <td><?= $row["proc_status"];?></td>
+            <td><?= $row["tag"];?></td>
+            <td><?= $row["category"];?></td>
             <td>
                 <a href="delete.php">Cancel</a>
                 <a href="updatrestatus.php">Process</a>
-            
             </td>
         </tr>
         <?php endforeach ?>

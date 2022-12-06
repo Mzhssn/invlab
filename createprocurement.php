@@ -32,15 +32,13 @@ if(isset($_POST['submit'])){
     <label for="">Title</label>
     <input type="text" name="title" id="tl" required>
     <label for="">Date</label>
-    <input type="text" name="date" id="dt" required>
-    <label for="">Picture</label>
-    <input type="text" name="picture" id="pic" required>    
-    <label for="">Type</label>
-    <input type="text" name="type" id="tp">
-    <label for="">Category</label>
-    <input type="text" name="category" id="ct" required>
+    <input type="date" name="date" id="dt" required>
     <label for="">Description</label>
-    <input type="text" name="description" id="desc" required>
+    <input type="text" name="description" id="des" required>    
+    <!-- <label for="">Type</label>
+    <input type="text" name="type" id="tp" required> -->
+    <label for="">Category</label>
+    <input type="text" name="category" id="cat" required>
     <button>Cancel</button>
     <button type="submit" name="submit">Create</button>
     </form>    

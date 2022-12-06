@@ -59,18 +59,22 @@ function procurement($data){
     
     $title = htmlspecialchars($data['title']);
     $date = htmlspecialchars($data['date']);
-    $picture = htmlspecialchars($data['picture']);
+    $description = htmlspecialchars($data['description']);
     $type = htmlspecialchars($data['type']);
     $category = htmlspecialchars($data['category']);
-    $description = htmlspecialchars($data['description']);
     
     //query
-    $query = "insert into procurement values ('','$title','$date','$picture','$type','$category',
-    '$description','Onprocess')";
-    mysqli_query($conn,$query);
+    
+    $query = "INSERT INTO procurement values ('','$title','$date',
+    '$description','Onprocess');";
+
+    $query .= "INSERT INTO type values ('','$type');";
+    $query .= "INSERT INTO category values ('','$category')";
+    
+
+    mysqli_multi_query($conn,$query);
 
     return mysqli_affected_rows($conn);
-
 }
 
 function updatestat($data){
