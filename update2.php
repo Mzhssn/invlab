@@ -1,26 +1,18 @@
 <?php 
 require "function.php";
 
-// //Ambil data di URL
-// $id = $_GET["id"];
-// //Query data mahasiswa berdasarkan id
-// $tamu = query("select*from myguest where id =$id");
-// var_dump($tamu["firstname"]);
-
-//Cek tombol submit udah ditekan atau belum
-
 if(isset($_POST["submit"])){
     //Cek apakah data berhasil diupdate
-    if(update($_POST)>0){
+    if(updatev2()($_POST)>0){
         echo "
         <script>
         alert('data berhasil diupdate');
-        document.location.href='homeprocurement.php';
+        document.location.href='homeprocurementv2.php';
         </script>";
     }else{"
         <script>
         alert('data gagal diupdate');
-        document.location.href='homeprocurement.php';
+        document.location.href='homeprocurementv2.php';
         </script>";
     }
 }
@@ -41,7 +33,7 @@ if(isset($_POST["submit"])){
             <tr>
                 <td>Nama Aset</td>
                 <td>:</td>
-                <td><input type="text" name="title" id="ti"  required></td>
+                <td><input type="text" name="name" id="nm"  required></td>
                 <td>Tanggal Selesai</td>
                 <td>:</td>
                 <td><input type="date" name="enddate" id=""></td>

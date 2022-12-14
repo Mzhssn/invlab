@@ -1,22 +1,29 @@
+/* HOME */
+
+*{
+    box-sizing: border-box;
+}
 .vertikal ul{
     list-style-type: none;
     width: 300px;
-    margin: 0;
-    padding: 0;
+    height: 1000px;
+    padding: 50px 10px 20px;
     font-family: arial;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
-    background-color: #fff;
+    background-color: white;
+
+    
 }
 
 .vertikal ul li a{
     text-align: center;
     display: block;
     color: black;
-    margin: 5px 7px;
+    margin: 20px 20px;
     text-decoration: none;
     border: 2px solid blue;
-    padding: 5px;
+    padding: 6px;
     border-radius: 12px;
 }
 
@@ -25,3 +32,227 @@
     color: #fff;
 }
 
+
+form{
+    width: 500px;
+    margin: 50px ;
+}
+
+.search {
+    position: relative;
+    left: 23%;
+    width: 100em;
+    height: 60px;
+    padding: 20px 25px;
+    background: whitesmoke;
+    border:  2px solid grey;
+    border-radius: 12px;
+}
+
+.header{
+    display: flex;
+    background-color: white;
+    height: auto;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 2px black;
+}
+/* 
+.header h2{
+    text-align: center;
+    border: 2px solid black;
+    padding: auto;
+    margin-bottom: auto;
+} */
+
+.logo {
+    position: relative;
+    top: 5px;
+    left: 5%;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #20368F;
+    padding: 5px 5px;
+    margin: 5px 5px;
+}
+
+.user-btn{
+    display: block;
+    position: relative;
+    text-align: center;
+    top: 60px;
+    left: 950px;
+    text-align: center;
+}
+
+.user-btn p{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 1px
+}
+
+
+
+
+.setting-btn{
+    display: block;
+    position: relative;
+    top: 60px;
+    left: 930px;
+    text-align: center;
+}
+
+.setting-btn p{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 1px;
+}
+
+
+/* 
+.main{
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 0 20px;
+    
+} */
+
+.content{
+    display: flex;
+}
+
+.add{
+    border: 1px solid black;
+    width: 150px;
+    background-color: white;
+    color:black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin : 20px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+
+}
+
+.table{
+    position: absolute;
+    font-family: sans-serif;
+    top: 180px;
+    width: 95%;
+    color: #444;
+    border-radius: 12px;
+
+}
+
+.table tr th{
+    color: black;
+    font-weight: bold;
+}
+
+.table, th, td{
+    padding: 8px 20px;
+    text-align: center;
+}
+
+
+
+body{
+    background: #829CD0;
+}
+
+.isi{
+    position: relative;
+    top: 10px;
+    left: 360px;
+    bottom: 550px;
+    list-style-type: none;
+    width: 1525px;
+    height: 1000px;
+    margin: 0;
+    padding: 20px 50px;
+    font-family: arial;
+    background-color: #fff;
+    /* border: 1px solid black; */
+    border-radius: 12px;
+}
+
+.sidebar ul{
+    position: absolute;
+    list-style-type: none;
+    background: white;
+	float: left;	
+	width: 340px;
+	height: 1000px;
+    margin-top: 10px;
+    border-radius: 12px;
+    padding: 30px;
+
+}
+
+.sidebar ul li a{
+    text-align: center;
+    display: block;
+    color: black;
+    margin: 20px 20px;
+    text-decoration: none;
+    border: 2px solid blue;
+    padding: 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    
+}
+
+.mp{
+    background-color:#20368F ;
+    
+}
+.mp p{
+    color: white;
+}
+
+
+/* Add Feature */
+.body1{
+    background-color: #f2f5f7;
+}
+
+.headerA{
+    border: 1px solid black;
+}
+
+.headerA h1{
+    position: relative;
+    left: 5%;
+    font-size: x-large;
+}
+
+.mainA {
+    position: relative;
+    top: 10px;
+    left: 2.5%;
+    bottom: 550px;
+    list-style-type: none;
+    width: 1525px;
+    height: 1000px;
+    margin: 0;
+    padding: 20px 50px;
+    font-family: arial;
+    background-color: #f2f5f7;
+    /* border: 1px solid black; */
+    border-radius: 12px;
+    
+}
+
+.mainA h3{
+    color: #444;
+
+}
+
+.form-A {
+    border: 1px solid black;
+}

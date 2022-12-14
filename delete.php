@@ -1,8 +1,8 @@
 <?php
 require 'function.php';
 
-$id = $_GET["id_proc"];
-if(hapus($_POST)>0 ){
+$id = $_GET["proc_id"];
+if(delete($id)>0 ){
     echo "
     <script>
     alert('data berhasil dihapus');

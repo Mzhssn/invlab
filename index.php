@@ -1,7 +1,7 @@
 <?php
-require'function.php';
+require 'function.php';
 
-$asset = query("SELECT asset.asset_id,asset.asset_name,asset.asset_date,tag.tag FROM asset INNER JOIN tag ON asset.asset_id=tag.asset_id;");
+$asset = query("SELECT asset.asset_id,asset.asset_name,asset.asset_date,asset.asset_description,maintainance.maint_date,tag.tag FROM asset INNER JOIN maintainance ON asset.asset_id=maintainance.asset_id INNER JOIN tag ON maintainance.asset_id=tag.asset_id");
 
 
 ?>
@@ -11,7 +11,7 @@ $asset = query("SELECT asset.asset_id,asset.asset_name,asset.asset_date,tag.tag 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="css\style.css">
 </head>
 <body>
@@ -30,22 +30,21 @@ $asset = query("SELECT asset.asset_id,asset.asset_name,asset.asset_date,tag.tag 
             <th>Nama Aset</th>
             <th>Tanggal Terdaftar</th>
             <th>Tanggal Perawatan</th>
-            <th>Jenis</th>
-            <th>Category</th>
+            <th>type</th>
             <th>Description</th>
         </tr>
         <!-- Looping untuk menampilkan array dari $procurement diambil dari tabel -->
         <?php foreach($asset as $row):?> 
-        <tr>
-            <td><?= $row["asset_id"];?></td>
-            <td><?= $row["asset_name"];?></td>
-            <td><?= $row["asset_date"];?></td>
-            <td><?= $row["maint_date"];?></td>
-            <td><?= $row["tag"];?></td>
-            <td><?= $row["category"];?></td>
-            <td><?= $row["asset_decription"];?></td>
-        </tr>
+            <tr>
+                <td><?= $row["asset_id"];?></td>
+                <td><?= $row["asset_name"];?></td>
+                <td><?= $row["asset_date"];?></td>
+                <td><?= $row["maint_date"];?></td>
+                <td><?= $row["tag"];?></td>
+                <td><?= $row["asset_description"];?></td>
+            </tr>
         <?php endforeach ?>
+
     </table>
 </body>
 </html>

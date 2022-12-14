@@ -53,23 +53,23 @@ function regis($data){
 
 }
 
-function procurement($data){
+function addproc($data){
     global $conn;
     //Ambil data dari setiap elemen di form
     
-    $title = htmlspecialchars($data['title']);
+    $name = htmlspecialchars($data['name']);
     $date = htmlspecialchars($data['date']);
-    $description = htmlspecialchars($data['description']);
-    $type = htmlspecialchars($data['type']);
+    $tag = htmlspecialchars($data['tag']);
+    $description = htmlspecialchars($data['desc']);
     $category = htmlspecialchars($data['category']);
     
     //query
     
-    $query = "INSERT INTO procurement values ('','$title','$date',
+    $query = "INSERT INTO procurement (proc_id,proc_name,proc_date,proc_description,proc_status) values ('','$name','$date',
     '$description','Onprocess');";
 
-    $query .= "INSERT INTO type values ('','$type');";
-    $query .= "INSERT INTO category values ('','$category')";
+    $query .= "INSERT INTO tag (tag_id,tag) values ('','$tag');";
+    $query .= "INSERT INTO category (category_id,category) values ('','$category')";
     
 
     mysqli_multi_query($conn,$query);
@@ -77,15 +77,15 @@ function procurement($data){
     return mysqli_affected_rows($conn);
 }
 
-function updatestat($data){
+function update($data){
     global $conn;
     //Ambil data dari tiap elemen dari form
     $title = htmlspecialchars($data["title"]);
     $enddate = htmlspecialchars($data["enddate"]);
     
     //Query
-    $query = "UPDATE procurement SET date_proc ='$enddate',
-    stat_proc = 'Complete' WHERE title_proc='$title'";
+    $query = "UPDATE procurement SET proc_date ='$enddate',
+    proc_status = 'Complete' WHERE proc_name='$title'";
      
     mysqli_query($conn, $query);
 
@@ -109,11 +109,51 @@ function move($data){
     return mysqli_affected_rows($conn);
 }
 
-function hapus($id){
+function delete($id){
     global $conn;
-    mysqli_query($conn,"DELETE FROM procurement where id_proc = $id");
+    //query
+    mysqli_query($conn, "DELETE FROM procurement where proc_id = '$id'");
+
     return mysqli_affected_rows($conn);
 }
+
+function del($data){
+    global $conn;
+    //Ambil data dari tiap elemen dari form
+    $assetname = htmlspecialchars($data["assetname"]);
+    
+    //Query
+    $query = "DELETE FROM procurement where  proc_name = '$assetname'";
+     
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function updatev2($data){
+    global $conn;
+    //Ambil data dari tiap elemen dari form
+    $title = htmlspecialchars($data["title"]);
+    $enddate = htmlspecialchars($data["enddate"]);
+    $name = htmlspecialchars($data["name"]);
+    
+    //QUERY
+    $query = "UPDATE procurement SET proc_date ='$enddate',
+    proc_status = 'Complete' WHERE proc_name='$title';";
+    
+
+    $query .= "INSERT INTO asset (name_asset,qty,type,category,date,picture,description)
+    SELECT title_proc,qty_proc,type_proc,cat_proc,date_proc,picture_proc,desc_proc 
+    from procurement WHERE title_proc = '$title'";
+     
+    mysqli_multi_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+
+
+
 
 
 ?>

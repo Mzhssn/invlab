@@ -1,0 +1,77 @@
+<!-- <?php
+require 'function.php';
+if(isset($_POST['submit'])){
+    //Cek data berhasil masuk
+    if(addproc($_POST)>0 ){
+        echo "
+        <script>
+        alert('data berhasil ditambahkan');
+        document.location.href='homeprocurement.php';
+        </script>";
+    } else{echo "
+        <script>
+        alert('data gagal ditambahkan');
+        document.location.href='createprocurement.php';
+        </script>";
+}}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Procurement</title>
+    <link rel="stylesheet" type="text/css" href="css\style.css">
+</head>
+<body class="body1">
+    <header class="headerA">
+        <h1>Create New Project</h1>
+    </header>
+    <main class="mainA">
+        <h3>Project Information</h3>
+        <div class="form-A">
+            <form action="" method="POST"><br>
+                <div>
+                    <label for="">Nama Aset</label><br>
+                    <input type="text" name="name" id="n" required>
+                </div>
+                <div>
+                    <label for="">Tanggal </label><br>
+                    <input type="date" name="date" id="d" required><br>
+                </div>
+                <div>
+                    <label for="">Tipe</label><br>
+                    <select name="tag" id="">
+                        <option value="elektronik">Elektronik</option>
+                        <option value="furnitur">Kortail</option>
+                        <option value="dapur">WarmingUP</option>
+                        <option value="perkantoran">Perkantoran</option>
+                        <option value="pertukangan">pertukangan</option>
+                        </select><br>
+
+                </div>
+                <div>
+                    <label for="">Kategori</label><br>
+                    <select name="category" id="">
+                        <option value="kolab">Ko+Lab</option>
+                        <option value="kortail">Kortail</option>
+                        <option value="warmingup">WarmingUP</option>
+                    </select><br>
+                </div>
+                <div>
+                    <label for="">Deskripsi</label><br>
+                    <input type="text" name="desc" id="d" required><br>
+                </div>
+                <div>
+                    <button>Cancel</button> 
+                    <button type="submit" name="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

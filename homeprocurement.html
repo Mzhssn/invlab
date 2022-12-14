@@ -1,0 +1,302 @@
+<?php
+use LDAP\Result;
+
+//Koneksi
+require 'function.php';
+
+// $select = query("SELECT procurement.proc_id,procurement.proc_name,procurement.proc_date,procurement.proc_description,
+// procurement.proc_status,category.category FROM procurement INNER JOIN category ON procurement.category_id=category.proc_id;");
+
+
+$select = query("SELECT procurement.proc_id,procurement.proc_name,procurement.proc_date,procurement.proc_description,
+procurement.proc_status FROM procurement;");
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Procurement</title>
+    <link rel="stylesheet" type="text/css" href="css\style.css">
+</head>
+<body>
+        <header>
+            <div class="header">
+                <!-- <a href=""><img src="" alt=""></a> -->
+                <div class="logo">
+                    <h2>INVLAB</h2>
+                </div>
+                <form action="">
+                    <input class='search' type="text" name="cari" id="c" placeholder="Ketik Untuk Mencari Asset">
+                </form>
+                <div class="setting-btn">
+                    <img src="./css/setting.jpeg" alt="">
+                    <p>Setting</p>
+
+                </div>
+                <div class="user-btn">
+                    <img src="./css/akun.jpeg" alt="">
+                    <p>User</p>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <aside>
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="index.php">Dashboard</a></li>
+                        <li><a href="maintenance.php">Maintenance Asset</a></li>
+                        <li><a href="report.php">Inventory Report</a></li>
+                        <li><a href="homeprocurement.php" class="mp"><p>Management Procurement</p></a></li></li>
+                    </ul>
+                </div>    
+            </aside>
+            <main>
+                <div class="isi">
+                    <h1>List Of Procurement</h1>
+                        <div class="add">
+                        <a href="createprocurement.php">Add Project</a>
+                        </div>
+                            <table class="table">
+                                <tr>
+                                    <th>id</th>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <!-- <th>Category</th> -->
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Monitor A</td>
+                                    <td>27/08/2022</td>
+                                    <td>Monitor Untuk Aslab</td>
+                                    <td>Onpocess</td>
+                                    <td>
+                                        <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
+                                        <a href="updatestatus.php">Process</a>
+                                    </td>
+                                </tr>
+                                
+
+                            </table>
+                </div>
+             </main>
+                
+        </div>
+
+    
+</body>
+</html>

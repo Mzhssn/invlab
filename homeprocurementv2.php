@@ -54,7 +54,7 @@ procurement.proc_status FROM procurement;");
                 <td><?= $row["proc_status"];?></td>
                 <td>
                     <a href="delete.php?proc_id=<?= $row['proc_id'];?>">Cancel</a>
-                    <a href="updatestatus.php">Process</a>
+                    <a href="update2.php">Process</a>
                 </td>
             </tr>
             <?php $i++ ?>
